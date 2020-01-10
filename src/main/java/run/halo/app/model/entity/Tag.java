@@ -10,11 +10,11 @@ import javax.persistence.*;
  * Tag entity
  *
  * @author ryanwang
- * @date : 2019-03-12
+ * @date 2019-03-12
  */
 @Data
 @Entity
-@Table(name = "tags", indexes = @Index(columnList = "slug_name"))
+@Table(name = "tags")
 @ToString
 @EqualsAndHashCode(callSuper = true)
 public class Tag extends BaseEntity {
@@ -33,7 +33,7 @@ public class Tag extends BaseEntity {
     /**
      * Tag slug name.
      */
-    @Column(name = "slug_name", columnDefinition = "varchar(255) not null")
+    @Column(name = "slug_name", columnDefinition = "varchar(255) not null", unique = true)
     private String slugName;
 
     @Override
